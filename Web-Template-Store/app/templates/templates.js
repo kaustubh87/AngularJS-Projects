@@ -11,8 +11,11 @@ angular.module('templateStore.templates',['ngRoute'])
     });
 }])
 
-.controller('TemplatesCtrl', ['$scope', function($scope){
+.controller('TemplatesCtrl', ['$scope', '$http', function($scope, $http){
     
+    $http.get('json/templates.json').success(function(data){
+        $scope.templates = data;
+    });
 }])
 
 .controller('TemplateDetailsCtrl', ['$scope', function($scope){
